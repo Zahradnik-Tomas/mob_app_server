@@ -7,8 +7,9 @@ from fastapi import HTTPException
 
 if os.path.isfile("Templates/templates.json"):
     with open("Templates/templates.json", "r") as file:
-        templates = str(json.load(file))
-        templateHash = hashlib.sha256(templates.encode('utf-8')).hexdigest()
+        templates = json.load(file)
+        file.seek(0)
+        templateHash = hashlib.sha256(file.readline().encode("utf-8")).hexdigest()
 else:
     templates = None
     templateHash = None
