@@ -12,7 +12,7 @@ cekajici = []
 vzitZDB = True
 
 while True:
-    # clear()
+    clear()
     if vzitZDB:
         cekajici = db.VratCekajici()
         vzitZDB = False
